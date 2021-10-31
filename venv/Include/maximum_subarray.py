@@ -1,7 +1,7 @@
 # leetcode 53 最大子序和
 
-nums = [-2,1,-3,4,-1,2,1,-5,4]
-nums = [-1]
+nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+# nums = [-1]
 
 # return 6 [4,-1,2,1]
 
@@ -21,3 +21,15 @@ for i in nums:
 print(max_sum)
 
 # 解法2 动态规划
+# 若前一个元素大于0 将其加到当前元素上
+
+nums = [-1]
+max_sum = nums[0]
+
+for i in range(1, len(nums)):
+    if nums[i - 1] > 0:
+        nums[i] += nums[i - 1]
+    if nums[i] > max_sum:
+        max_sum = nums[i]
+
+print(max_sum)
