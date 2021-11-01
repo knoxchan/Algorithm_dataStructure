@@ -92,10 +92,36 @@ class SinglyLinkList:
         ptr.next = ptr.next.next
         self.traverse_singly_link(header)
 
+    # 反转链表
+    def reverse_singly_link(self, header):
+        print('反转前链表是:')
+        self.traverse_singly_link(header)
+        print('反转后链表是')
+        re_ptr = None
+        ptr = header.next
+        while ptr != None:
+            q = ptr.next
+            ptr.next = re_ptr
+            re_ptr = ptr
+            ptr = q
+        header.next = re_ptr
+        self.traverse_singly_link(header)
 
+    # 连接两个链表
+    def contact_two_linker(self, header1, header2):
+        print('连接前两个链表分别是')
+        self.traverse_singly_link(header1)
+        self.traverse_singly_link(header2)
+        ptr = header1.next
+        while ptr.next != None:
+            ptr = ptr.next
+        ptr.next = header2.next
+        print('连接后:')
+        self.traverse_singly_link(header1)
 
 
 if __name__ == '__main__':
     s = SinglyLinkList()
-    header = s.bilid_random_singly_link(3)
-    s.reverse_singly_link(header)
+    header1 = s.bilid_random_singly_link(3)
+    header2 = s.bilid_random_singly_link(3)
+    s.contact_two_linker(header1, header2)
