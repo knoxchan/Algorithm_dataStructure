@@ -33,3 +33,15 @@ for i in range(1, len(nums)):
         max_sum = nums[i]
 
 print(max_sum)
+# 若前一个元素大于0 将其加到当前元素上
+
+nums = [-1]
+max_sum = nums[0]
+
+for i in range(1, len(nums)):
+    if nums[i - 1] > 0:
+        nums[i] += nums[i - 1]
+    if nums[i] > max_sum:
+        max_sum = nums[i]
+
+print(max_sum)
